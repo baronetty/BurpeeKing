@@ -1,59 +1,55 @@
+
+
+import SwiftData
 import SwiftUI
 
 struct ContentView: View {
-   
-    @State private var exercise = ""
-    @State private var weightPercentage = 50 // Standardwert auf 50%
-    @State private var weight = 0.0
-    @FocusState private var weightIsFocused: Bool
+    @Environment(\.modelContext) var modelContext
+    @State private var path = NavigationPath()
     
-    var exerciseWeight: Double {
-        let weightSelection = Double(weightPercentage)
-        let exerciseValue = weight * weightSelection / 100
-        
-        return exerciseValue
-    }
+    @State private var sortOrder = [SortDescriptor(\Exercise.name)]
+    @State private var searchText = ""
     
     var body: some View {
-        NavigationView {
-            Form {
-                Section("Insert exercise") {
-                    TextField("Exercise", text: $exercise)
+        NavigationStack(path: $path) {
+            ExerciseView(searchString: searchText, sortOrder: sortOrder)
+                .navigationTitle("BurpeeKing")
+                .navigationDestination(for: Exercise.self) { exercise in
+                    EditExerciseView(exercise: exercise, navigationPath: $path)
                 }
-                
-                Section("Add your 1RM") {
-                    TextField("1RM", value: $weight, format: .number)
-                        .keyboardType(.decimalPad)
-                        .focused($weightIsFocused)
-                }
-                
-                Section("% of 1RM") {
-                    Picker("1RM Percentage", selection: $weightPercentage) {
-                        ForEach(0..<101) {
-                            Text("\($0)% of 1RM")
+                .toolbar {
+                    Menu("Sort", systemImage: "arrow.up.arrow.down") {
+                        Picker("Sort", selection: $sortOrder) {
+                            Text("Name A-Z")
+                                .tag([SortDescriptor(\Exercise.name)])
+                            
+                            Text("Name Z-A")
+                                .tag([SortDescriptor(\Exercise.name, order: .reverse)])
                         }
                     }
-                    .pickerStyle(.navigationLink)
+                    
+                    Button("Add Exercise", systemImage: "plus", action: addExercise)
                 }
-                
-                Section {
-                    Text("\(exerciseWeight, specifier: "%.2f")")
-                }
-            }
-            .navigationTitle("BurpeeKing")
-            .toolbar {
-                if weightIsFocused {
-                    Button("Done") {
-                        weightIsFocused = false
-                    }
-                }
-            }
+                .searchable(text: $searchText)
         }
+        .navigationTitle("BurpeeKing")
     }
+    
+    func addExercise() {
+        let exercise = Exercise(name: "", numberOfReps: 2, weightCount: 100, details: "", date: Date.now)
+        modelContext.insert(exercise)
+        path.append(exercise)
+    }
+    
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+#Preview {
+    do {
+        let previewer = try Previewer()
+        
+        return ContentView()
+            .modelContainer(previewer.container)
+    } catch {
+        return Text("Failed to create preview: \(error.localizedDescription)")
     }
 }
