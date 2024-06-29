@@ -33,7 +33,7 @@ struct LineChartView: View {
                 //                    }
                 ForEach(exercises) { exercise in
                     LineMark(x: .value("Date", exercise.date, unit: .month),
-                             y: .value("Weight", exercise.weightCount))
+                             y: .value("Weight", exercise.weightCount ?? 0.0))
                     .foregroundStyle(.blue.gradient)
                 }
             }
@@ -61,23 +61,9 @@ struct LineChartView: View {
 }
 
 //#Preview {
-//    do {
-//        let previewer = try Previewer()
-//        
-//        return LineChartView(_exercises: <#T##[Exercise]#>, exercise: <#T##Exercise#>)
-//            .modelContainer(previewer.container)
-//    } catch {
-//        return Text("Failed to create preview: \(error.localizedDescription)")
-//    }
+//    LineChartView(exercise: Exercise(name: "", numberOfReps: 0, weightCount: 0.0, details: "", date: Date.now))
+//        .modelContainer(for: Exercise.self, inMemory: true)
 //}
-
-
-
-
-
-//    var highestWeightCount: Double {
-//        return exercises.max(by: { $0.weightCount < $1.weightCount })?.weightCount ?? 0.0
-//    }
 
 
 

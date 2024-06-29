@@ -8,7 +8,7 @@
 import SwiftData
 import SwiftUI
 
-struct ExerciseView: View {
+struct ExerciseListView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var exercises: [Exercise]
     
@@ -46,9 +46,9 @@ struct ExerciseView: View {
     do {
         let previewer = try Previewer()
         
-        return ExerciseView()
+        return ExerciseListView()
             .modelContainer(previewer.container)
     } catch {
-        return Text("Failed to create preview: \(error.localizedDescription)")
+        return Text("🤬 ERROR: Failed to create preview: \(error.localizedDescription)")
     }
 }

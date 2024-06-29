@@ -9,14 +9,14 @@ import Foundation
 import SwiftData
 
 @Model
-class Exercise: ObservableObject, Identifiable, Equatable {
+class Exercise {
     var name: String
     var numberOfReps: Int // Picker
-    var weightCount: Double // y axis
+    var weightCount: Double? // y axis
     var details: String
     var date: Date // x axis
     
-    init(name: String, numberOfReps: Int, weightCount: Double, details: String, date: Date) {
+    init(name: String = "", numberOfReps: Int = 2, weightCount: Double? = nil, details: String = "", date: Date = Date.now) {
         self.name = name
         self.numberOfReps = numberOfReps
         self.weightCount = weightCount
@@ -24,10 +24,6 @@ class Exercise: ObservableObject, Identifiable, Equatable {
         self.date = date
     }
 }
-
-func == (lhs: Exercise, rhs: Exercise) -> Bool {
-        lhs.id == rhs.id
-    }
 
 extension Date {
     static func from(year: Int, month: Int, day: Int) -> Date {

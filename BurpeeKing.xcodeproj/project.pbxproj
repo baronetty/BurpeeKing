@@ -63,11 +63,8 @@
 			children = (
 				B352E7A12AF261850027BDD2 /* BurpeeKingApp.swift */,
 				B352E7A32AF261850027BDD2 /* ContentView.swift */,
-				B3BDEA942B5413E5000C8CC8 /* LineChartView.swift */,
-				B3BDEA982B552A82000C8CC8 /* ExerciseView.swift */,
-				B3BDEA9C2B5531E9000C8CC8 /* EditExerciseView.swift */,
-				B3BDEA962B552655000C8CC8 /* Exercise.swift */,
-				B3BDEA9A2B552FB9000C8CC8 /* Previewer.swift */,
+				B37E25142C2ECA9E00D5B033 /* Views */,
+				B37E25132C2ECA8600D5B033 /* Models */,
 				B352E7A52AF261860027BDD2 /* Assets.xcassets */,
 				B352E7A72AF261860027BDD2 /* Preview Content */,
 			);
@@ -80,6 +77,25 @@
 				B352E7A82AF261860027BDD2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B37E25132C2ECA8600D5B033 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B3BDEA962B552655000C8CC8 /* Exercise.swift */,
+				B3BDEA9A2B552FB9000C8CC8 /* Previewer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B37E25142C2ECA9E00D5B033 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B3BDEA942B5413E5000C8CC8 /* LineChartView.swift */,
+				B3BDEA982B552A82000C8CC8 /* ExerciseView.swift */,
+				B3BDEA9C2B5531E9000C8CC8 /* EditExerciseView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

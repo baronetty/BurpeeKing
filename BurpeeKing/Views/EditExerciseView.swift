@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-struct EditExerciseView: View {    
+struct EditExerciseView: View {
+    @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
     @Bindable var exercise: Exercise
-    @Binding var navigationPath: NavigationPath
+    @Binding var path: NavigationPath
     
     @State private var weightText: String = ""
     
@@ -22,9 +23,8 @@ struct EditExerciseView: View {
                 TextField("Exercise", text: $exercise.name)
                     .textContentType(.name)
                 Picker("How many reps?", selection: $exercise.numberOfReps) {
-                    ForEach(1..<6) {
-                        Text("\($0)x")
-                        //                            .tag(exercise.numberOfReps)
+                    ForEach(1..<6) { reps in
+                        Text("\(reps)x").tag(reps)
                     }
                 }
                 .pickerStyle(.segmented)
@@ -47,23 +47,31 @@ struct EditExerciseView: View {
         .navigationTitle("Edit \(exercise.name)")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            Button {
-                if let weight = Double(weightText) {
-                    exercise.weightCount = weight
-                    let newExercise = Exercise(name: exercise.name,
-                                                                       numberOfReps: exercise.numberOfReps,
-                                                                       weightCount: exercise.weightCount,
-                                                                       details: exercise.details,
-                                                                       date: exercise.date)
-                    modelContext.insert(newExercise)
-//                    navigationPath.append(exercise)
+            ToolbarItem(placement: .topBarLeading) {
+                Button("Cancel") {
+                    dismiss()
                 }
-            } label: {
-                Text("Save")
-                Image(systemName: "square.and.arrow.down.fill")
             }
             
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    if let weight = Double(weightText) {
+                        exercise.weightCount = weight
+                        let exercise = Exercise(
+                            name: exercise.name,
+                            numberOfReps: exercise.numberOfReps,
+                            weightCount: exercise.weightCount,
+                            details: exercise.details,
+                            date: exercise.date)
+                        modelContext.insert(exercise)
+                    }
+                } label: {
+                    Text("Save")
+                    Image(systemName: "square.and.arrow.down.fill")
+                }
+            }
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
@@ -71,9 +79,9 @@ struct EditExerciseView: View {
     do {
         let previewer = try Previewer()
         
-        return EditExerciseView(exercise: previewer.exercise, navigationPath: .constant(NavigationPath()))
+        return EditExerciseView(exercise: previewer.exercise, path: .constant(NavigationPath()))
             .modelContainer(previewer.container)
     } catch {
-        return Text("Failed to create preview: \(error.localizedDescription)")
+        return Text("🤬 ERROR: Failed to create preview: \(error.localizedDescription)")
     }
 }
