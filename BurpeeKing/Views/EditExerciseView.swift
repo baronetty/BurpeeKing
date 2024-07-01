@@ -47,12 +47,6 @@ struct EditExerciseView: View {
         .navigationTitle("Edit \(exercise.name)")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button("Cancel") {
-                    dismiss()
-                }
-            }
-            
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     if let weight = Double(weightText) {
@@ -71,7 +65,6 @@ struct EditExerciseView: View {
                 }
             }
         }
-        .navigationBarBackButtonHidden()
     }
 }
 
