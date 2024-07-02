@@ -23,7 +23,7 @@ struct LineChartView: View {
 //                .foregroundStyle(.secondary)
             
             Chart {
-                RuleMark(y: .value("Goal", 200))
+                RuleMark(y: .value("Goal", exercise.goalWeight))
                     .foregroundStyle(.red)
                     .lineStyle(StrokeStyle(dash: [15.0, 5.0]))
                 //                    .annotation(alignment: .leading) {

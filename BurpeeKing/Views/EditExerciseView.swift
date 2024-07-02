@@ -14,6 +14,24 @@ struct EditExerciseView: View {
     @Binding var path: NavigationPath
     
     @State private var weightText: String = ""
+    @State private var goalText: String = ""
+    
+    // Statische Funktion zum Einrichten der benutzerdefinierten UISegmentedControl-Eigenschaften
+        static func setupAppearance() {
+            UISegmentedControl.appearance().selectedSegmentTintColor = UIColor.purple
+            
+            let attributes: [NSAttributedString.Key: Any] = [
+                .foregroundColor: UIColor.systemBackground
+            ]
+            UISegmentedControl.appearance().setTitleTextAttributes(attributes, for: .selected)
+        }
+        
+        // Initialisierer für die Ansicht, der die setupAppearance-Methode aufruft
+        init(exercise: Exercise, path: Binding<NavigationPath>) {
+            self._exercise = Bindable(exercise)
+            self._path = path
+            EditExerciseView.setupAppearance()
+        }
     
     var body: some View {
         LineChartView(exercise: exercise)
@@ -35,6 +53,11 @@ struct EditExerciseView: View {
                     .keyboardType(.decimalPad)
             }
             
+            Section("Enter your goal weight") {
+                TextField("Your Goal", text: $goalText)
+                    .keyboardType(.decimalPad)
+            }
+            
             Section("Enter the Date") {
                 DatePicker("Enter the Date", selection: $exercise.date, displayedComponents: .date)
                     .labelsHidden()
@@ -51,13 +74,17 @@ struct EditExerciseView: View {
                 Button {
                     if let weight = Double(weightText) {
                         exercise.weightCount = weight
-                        let exercise = Exercise(
-                            name: exercise.name,
-                            numberOfReps: exercise.numberOfReps,
-                            weightCount: exercise.weightCount,
-                            details: exercise.details,
-                            date: exercise.date)
-                        modelContext.insert(exercise)
+                        if let goal = Double(goalText) {
+                            exercise.goalWeight = goal
+                            let exercise = Exercise(
+                                name: exercise.name,
+                                numberOfReps: exercise.numberOfReps,
+                                weightCount: exercise.weightCount,
+                                goalWeight: exercise.goalWeight,
+                                details: exercise.details,
+                                date: exercise.date)
+                            modelContext.insert(exercise)
+                        }
                     }
                 } label: {
                     Text("Save")
