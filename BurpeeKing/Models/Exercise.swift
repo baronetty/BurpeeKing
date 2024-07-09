@@ -13,7 +13,7 @@ class Exercise {
     var name: String
     var numberOfReps: Int // Picker
     var weightCount: Double? // y axis
-    var goalWeight: Double
+    var goalWeight: Double // goal line
     var details: String
     var date: Date // x axis
     

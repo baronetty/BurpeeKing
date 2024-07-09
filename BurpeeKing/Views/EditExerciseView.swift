@@ -16,7 +16,6 @@ struct EditExerciseView: View {
     @State private var weightText: String = ""
     @State private var goalText: String = ""
     
-    // Statische Funktion zum Einrichten der benutzerdefinierten UISegmentedControl-Eigenschaften
         static func setupAppearance() {
             UISegmentedControl.appearance().selectedSegmentTintColor = UIColor.purple
             
@@ -26,7 +25,7 @@ struct EditExerciseView: View {
             UISegmentedControl.appearance().setTitleTextAttributes(attributes, for: .selected)
         }
         
-        // Initialisierer für die Ansicht, der die setupAppearance-Methode aufruft
+        
         init(exercise: Exercise, path: Binding<NavigationPath>) {
             self._exercise = Bindable(exercise)
             self._path = path

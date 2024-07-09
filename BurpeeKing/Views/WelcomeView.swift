@@ -17,12 +17,13 @@ struct WelcomeView: View {
                 .font(.system(size: 50))
                 .bold()
                 .foregroundStyle(.purple)
+                .symbolEffect(.pulse)
             
             Text("Welcome to BurpeeKing")
                 .padding()
                 .font(.largeTitle)
             
-            Text("Hi there, great that you are using BurpeeKing. To enjoy the full experience, please add your first entry.")
+            Text("Hi there, great that you are using BurpeeKing. To enjoy the full experience, please add your first diary entry.")
                 .padding(.horizontal)
                 .foregroundStyle(.secondary)
             
