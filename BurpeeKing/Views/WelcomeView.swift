@@ -16,8 +16,7 @@ struct WelcomeView: View {
             Image(systemName: "figure.strengthtraining.traditional")
                 .font(.system(size: 50))
                 .bold()
-                .foregroundStyle(.purple)
-                .symbolEffect(.pulse)
+                .foregroundStyle(.accent)
             
             Text("Welcome to BurpeeKing")
                 .padding()
@@ -27,10 +26,15 @@ struct WelcomeView: View {
                 .padding(.horizontal)
                 .foregroundStyle(.secondary)
             
-            Button("Add Exercise", systemImage: "plus") {
+            Button("", systemImage: "plus.circle.fill") {
                 showingSheet.toggle()
             }
             .padding()
+            // maybe make it wiggle, it looks better and catchers the important attention
+            .font(.system(size: 50))
+            .bold()
+            .foregroundStyle(.purple)
+            .symbolEffect(.pulse.byLayer)
         }
         .sheet(isPresented: $showingSheet) {
             NavigationStack {
