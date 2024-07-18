@@ -16,7 +16,8 @@ struct WelcomeView: View {
             Image(systemName: "figure.strengthtraining.traditional")
                 .font(.system(size: 50))
                 .bold()
-                .foregroundStyle(.accent)
+                .shadow(radius: 8, x: 5, y: 5)
+                .foregroundStyle(.accent.gradient)
             
             Text("Welcome to BurpeeKing")
                 .padding()
@@ -33,7 +34,8 @@ struct WelcomeView: View {
             // maybe make it wiggle, it looks better and catchers the important attention
             .font(.system(size: 50))
             .bold()
-            .foregroundStyle(.purple)
+            .shadow(radius: 8, x: 5, y: 5)
+            .foregroundStyle(.purple.gradient)
             .symbolEffect(.pulse.byLayer)
         }
         .sheet(isPresented: $showingSheet) {

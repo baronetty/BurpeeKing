@@ -13,13 +13,35 @@ struct ExerciseListView: View {
     @Query private var exercises: [Exercise]
     
     var body: some View {
-        List {
-            ForEach(exercises) { exercise in
-                NavigationLink(value: exercise) {
-                    Text(exercise.name)
+        ScrollView(.vertical) {
+            LazyVStack(spacing: 10) {
+                ForEach(exercises, id: \.self) { exercise in
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.purple.gradient)
+                            .shadow(color: .black ,radius: 4)
+                            .frame(height: 50)
+                        NavigationLink(value: exercise) {
+                            Text(exercise.name)
+                                .font(.title2.bold())
+                                .foregroundStyle(.white)
+                            
+                            Image(systemName: exercise.timeOrWeight ? "timer" : "dumbbell.fill")
+                                .padding(.horizontal)
+                                .font(.title2)
+                                .foregroundStyle(.black)
+                                .bold()
+                        }
+                    }
+                    .padding(.horizontal, 5)
                 }
+                .onDelete(perform: deleteExercise)
             }
-            .onDelete(perform: deleteExercise)
+        }
+        .mask {
+            LinearGradient(gradient: Gradient(colors: [.black, .clear]),
+                           startPoint: .init(x: 0.5, y: 0.95),
+                           endPoint: .bottom)
         }
     }
     

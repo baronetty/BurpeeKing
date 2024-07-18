@@ -23,7 +23,7 @@ struct LineChartView: View {
 //                .foregroundStyle(.secondary)
             
             Chart {
-                RuleMark(y: .value("Goal", exercise.goalWeight))
+                RuleMark(y: .value("Goal", exercise.goalWeightOrTime))
                     .foregroundStyle(.red)
                     .lineStyle(StrokeStyle(dash: [15.0, 5.0]))
                 //                    .annotation(alignment: .leading) {
@@ -33,7 +33,7 @@ struct LineChartView: View {
                 //                    }
                 ForEach(exercises) { exercise in
                     LineMark(x: .value("Date", exercise.date, unit: .month),
-                             y: .value("Weight", exercise.weightCount ?? 0.0))
+                             y: .value("Weight", exercise.weightCountOrTime ?? 0.0))
                     .foregroundStyle(.blue.gradient)
                 }
             }
@@ -60,10 +60,16 @@ struct LineChartView: View {
     }
 }
 
-//#Preview {
-//    LineChartView(exercise: Exercise(name: "", numberOfReps: 0, weightCount: 0.0, details: "", date: Date.now))
-//        .modelContainer(for: Exercise.self, inMemory: true)
-//}
+#Preview {
+    do {
+        let previewer = try Previewer()
+        
+        return LineChartView(exercise: Exercise(name: "Deadlift", numberOfReps: 2, weightCountOrTime: 170.0, goalWeightOrTime: 200.0, details: "My favorite exercise", date: Date.from(year: 2023, month: 8, day: 5)))
+            .modelContainer(previewer.container)
+    } catch {
+        return Text("🤬 ERROR: Failed to create preview: \(error.localizedDescription)")
+    }
+}
 
 
 

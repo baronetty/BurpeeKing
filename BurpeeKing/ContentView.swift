@@ -12,9 +12,9 @@ struct ContentView: View {
     @Query private var exercises: [Exercise]
     
     var body: some View {
-//        if exercises.isEmpty {
-//            WelcomeView()
-//        } else {
+        if exercises.isEmpty {
+            WelcomeView()
+        } else {
             TabView {
                 MainView()
                     .tabItem {
@@ -26,10 +26,17 @@ struct ContentView: View {
                         Label("Information", systemImage: "info.square.fill")
                     }
             }
-//        }
+        }
     }
 }
 
 #Preview {
-    ContentView()
+    do {
+        let previewer = try Previewer()
+        
+        return ContentView()
+            .modelContainer(previewer.container)
+    } catch {
+        return Text("🤬 ERROR: Failed to create preview: \(error.localizedDescription)")
+    }
 }

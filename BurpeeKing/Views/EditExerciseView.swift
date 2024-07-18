@@ -13,7 +13,7 @@ struct EditExerciseView: View {
     @Bindable var exercise: Exercise
     @Binding var path: NavigationPath
     
-    @State private var weightText: String = ""
+    @State private var weightOrTimeText: String = ""
     @State private var goalText: String = ""
     
         static func setupAppearance() {
@@ -36,6 +36,14 @@ struct EditExerciseView: View {
         LineChartView(exercise: exercise)
         
         Form {
+            Section("What do you want to meassure?") {
+                Picker("Time or Weight?", selection: $exercise.timeOrWeight) {
+                    Text("Time").tag(true)
+                    Text("Weight").tag(false)
+                }
+                .pickerStyle(SegmentedPickerStyle())
+            }
+            
             Section("Enter Exercise") {
                 TextField("Exercise", text: $exercise.name)
                     .textContentType(.name)
@@ -48,7 +56,7 @@ struct EditExerciseView: View {
             }
             
             Section("Enter the weigth") {
-                TextField("Used Weight", text: $weightText)
+                TextField("Used Weight", text: $weightOrTimeText)
                     .keyboardType(.decimalPad)
             }
             
@@ -71,18 +79,21 @@ struct EditExerciseView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    if let weight = Double(weightText) {
-                        exercise.weightCount = weight
+                    if let weight = Double(weightOrTimeText) {
+                        exercise.weightCountOrTime = weight
                         if let goal = Double(goalText) {
-                            exercise.goalWeight = goal
+                            exercise.goalWeightOrTime = goal
                             let exercise = Exercise(
+                                timeOrWeight: exercise.timeOrWeight,
                                 name: exercise.name,
                                 numberOfReps: exercise.numberOfReps,
-                                weightCount: exercise.weightCount,
-                                goalWeight: exercise.goalWeight,
+                                weightCountOrTime: exercise.weightCountOrTime,
+                                goalWeightOrTime: exercise.goalWeightOrTime,
                                 details: exercise.details,
                                 date: exercise.date)
                             modelContext.insert(exercise)
+                            weightOrTimeText = ""
+                            goalText = ""
                         }
                     }
                 } label: {

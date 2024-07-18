@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B301CF672C4804A600F5D193 /* LineChartWeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B301CF662C4804A600F5D193 /* LineChartWeightView.swift */; };
+		B30713622C4917B2009BFEDF /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30713612C4917B2009BFEDF /* Exercise.swift */; };
+		B30713642C4917D8009BFEDF /* EditExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30713632C4917D8009BFEDF /* EditExerciseView.swift */; };
+		B30713662C49182C009BFEDF /* Previewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30713652C49182C009BFEDF /* Previewer.swift */; };
 		B3440B552C32F6490014B60F /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3440B542C32F6490014B60F /* WelcomeView.swift */; };
 		B3440B592C3301900014B60F /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3440B582C3301900014B60F /* InformationView.swift */; };
 		B3440B5B2C33024D0014B60F /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3440B5A2C33024D0014B60F /* ExerciseListView.swift */; };
@@ -14,14 +18,14 @@
 		B352E7A42AF261850027BDD2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B352E7A32AF261850027BDD2 /* ContentView.swift */; };
 		B352E7A62AF261860027BDD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B352E7A52AF261860027BDD2 /* Assets.xcassets */; };
 		B352E7A92AF261860027BDD2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B352E7A82AF261860027BDD2 /* Preview Assets.xcassets */; };
-		B3BDEA952B5413E5000C8CC8 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BDEA942B5413E5000C8CC8 /* LineChartView.swift */; };
-		B3BDEA972B552655000C8CC8 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BDEA962B552655000C8CC8 /* Exercise.swift */; };
-		B3BDEA9B2B552FB9000C8CC8 /* Previewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BDEA9A2B552FB9000C8CC8 /* Previewer.swift */; };
-		B3BDEA9D2B5531E9000C8CC8 /* EditExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BDEA9C2B5531E9000C8CC8 /* EditExerciseView.swift */; };
 		B3CFAD3C2C330F22001E3B18 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CFAD3B2C330F22001E3B18 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B301CF662C4804A600F5D193 /* LineChartWeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartWeightView.swift; sourceTree = "<group>"; };
+		B30713612C4917B2009BFEDF /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		B30713632C4917D8009BFEDF /* EditExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseView.swift; sourceTree = "<group>"; };
+		B30713652C49182C009BFEDF /* Previewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Previewer.swift; sourceTree = "<group>"; };
 		B3440B542C32F6490014B60F /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		B3440B582C3301900014B60F /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		B3440B5A2C33024D0014B60F /* ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
@@ -30,10 +34,6 @@
 		B352E7A32AF261850027BDD2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B352E7A52AF261860027BDD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B352E7A82AF261860027BDD2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B3BDEA942B5413E5000C8CC8 /* LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
-		B3BDEA962B552655000C8CC8 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
-		B3BDEA9A2B552FB9000C8CC8 /* Previewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Previewer.swift; sourceTree = "<group>"; };
-		B3BDEA9C2B5531E9000C8CC8 /* EditExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseView.swift; sourceTree = "<group>"; };
 		B3CFAD3B2C330F22001E3B18 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,8 +88,8 @@
 		B37E25132C2ECA8600D5B033 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B3BDEA962B552655000C8CC8 /* Exercise.swift */,
-				B3BDEA9A2B552FB9000C8CC8 /* Previewer.swift */,
+				B30713612C4917B2009BFEDF /* Exercise.swift */,
+				B30713652C49182C009BFEDF /* Previewer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -99,8 +99,8 @@
 			children = (
 				B3CFAD3B2C330F22001E3B18 /* MainView.swift */,
 				B3440B5A2C33024D0014B60F /* ExerciseListView.swift */,
-				B3BDEA942B5413E5000C8CC8 /* LineChartView.swift */,
-				B3BDEA9C2B5531E9000C8CC8 /* EditExerciseView.swift */,
+				B301CF662C4804A600F5D193 /* LineChartWeightView.swift */,
+				B30713632C4917D8009BFEDF /* EditExerciseView.swift */,
 				B3440B582C3301900014B60F /* InformationView.swift */,
 				B3440B542C32F6490014B60F /* WelcomeView.swift */,
 			);
@@ -178,15 +178,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B352E7A42AF261850027BDD2 /* ContentView.swift in Sources */,
-				B3BDEA972B552655000C8CC8 /* Exercise.swift in Sources */,
+				B30713642C4917D8009BFEDF /* EditExerciseView.swift in Sources */,
 				B352E7A22AF261850027BDD2 /* BurpeeKingApp.swift in Sources */,
 				B3440B5B2C33024D0014B60F /* ExerciseListView.swift in Sources */,
 				B3440B552C32F6490014B60F /* WelcomeView.swift in Sources */,
+				B30713662C49182C009BFEDF /* Previewer.swift in Sources */,
 				B3440B592C3301900014B60F /* InformationView.swift in Sources */,
+				B30713622C4917B2009BFEDF /* Exercise.swift in Sources */,
 				B3CFAD3C2C330F22001E3B18 /* MainView.swift in Sources */,
-				B3BDEA9B2B552FB9000C8CC8 /* Previewer.swift in Sources */,
-				B3BDEA952B5413E5000C8CC8 /* LineChartView.swift in Sources */,
-				B3BDEA9D2B5531E9000C8CC8 /* EditExerciseView.swift in Sources */,
+				B301CF672C4804A600F5D193 /* LineChartWeightView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
