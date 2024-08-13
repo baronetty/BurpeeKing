@@ -13,15 +13,11 @@ struct ExerciseListView: View {
     @Query private var exercises: [Exercise]
     
     var body: some View {
-        ScrollView(.vertical) {
-            LazyVStack(spacing: 10) {
+        NavigationStack {
+            List {
                 ForEach(exercises, id: \.self) { exercise in
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(.purple.gradient)
-                            .shadow(color: .black ,radius: 4)
-                            .frame(height: 50)
-                        NavigationLink(value: exercise) {
+                    NavigationLink(value: exercise) {
+                        HStack {
                             Text(exercise.name)
                                 .font(.title2.bold())
                                 .foregroundStyle(.white)
@@ -31,16 +27,26 @@ struct ExerciseListView: View {
                                 .font(.title2)
                                 .foregroundStyle(.black)
                                 .bold()
+                            
+                            Spacer()
                         }
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.purple.gradient).shadow(color: .black, radius: 4))
                     }
-                    .padding(.horizontal, 5)
                 }
                 .onDelete(perform: deleteExercise)
+            }
+            .listStyle(.plain)
+            .swipeActions {
+                Button("Add Favorit", systemImage: "star") {
+                    print("added")
+                }
+                .tint(.yellow)
             }
         }
         .mask {
             LinearGradient(gradient: Gradient(colors: [.black, .clear]),
-                           startPoint: .init(x: 0.5, y: 0.95),
+                           startPoint: .init(x: 0.5, y: 0.8),
                            endPoint: .bottom)
         }
     }

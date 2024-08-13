@@ -18,6 +18,8 @@
 		B352E7A42AF261850027BDD2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B352E7A32AF261850027BDD2 /* ContentView.swift */; };
 		B352E7A62AF261860027BDD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B352E7A52AF261860027BDD2 /* Assets.xcassets */; };
 		B352E7A92AF261860027BDD2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B352E7A82AF261860027BDD2 /* Preview Assets.xcassets */; };
+		B3BDAA1B2C5937400017AA86 /* SuperTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = B3BDAA1A2C5937400017AA86 /* SuperTabBar */; };
+		B3BDAA1D2C59415D0017AA86 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BDAA1C2C59415D0017AA86 /* CustomTabView.swift */; };
 		B3CFAD3C2C330F22001E3B18 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CFAD3B2C330F22001E3B18 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +36,9 @@
 		B352E7A32AF261850027BDD2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B352E7A52AF261860027BDD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B352E7A82AF261860027BDD2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B3BDAA1C2C59415D0017AA86 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		B3CFAD3B2C330F22001E3B18 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		B3D996832C568640005961A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3BDAA1B2C5937400017AA86 /* SuperTabBar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +72,7 @@
 		B352E7A02AF261850027BDD2 /* BurpeeKing */ = {
 			isa = PBXGroup;
 			children = (
+				B3D996832C568640005961A6 /* Info.plist */,
 				B352E7A12AF261850027BDD2 /* BurpeeKingApp.swift */,
 				B352E7A32AF261850027BDD2 /* ContentView.swift */,
 				B37E25142C2ECA9E00D5B033 /* Views */,
@@ -103,6 +109,7 @@
 				B30713632C4917D8009BFEDF /* EditExerciseView.swift */,
 				B3440B582C3301900014B60F /* InformationView.swift */,
 				B3440B542C32F6490014B60F /* WelcomeView.swift */,
+				B3BDAA1C2C59415D0017AA86 /* CustomTabView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -123,6 +130,9 @@
 			dependencies = (
 			);
 			name = BurpeeKing;
+			packageProductDependencies = (
+				B3BDAA1A2C5937400017AA86 /* SuperTabBar */,
+			);
 			productName = BurpeeKing;
 			productReference = B352E79E2AF261850027BDD2 /* BurpeeKing.app */;
 			productType = "com.apple.product-type.application";
@@ -151,6 +161,9 @@
 				Base,
 			);
 			mainGroup = B352E7952AF261850027BDD2;
+			packageReferences = (
+				B3BDAA192C5937400017AA86 /* XCRemoteSwiftPackageReference "SuperTabBar" */,
+			);
 			productRefGroup = B352E79F2AF261850027BDD2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -184,6 +197,7 @@
 				B3440B552C32F6490014B60F /* WelcomeView.swift in Sources */,
 				B30713662C49182C009BFEDF /* Previewer.swift in Sources */,
 				B3440B592C3301900014B60F /* InformationView.swift in Sources */,
+				B3BDAA1D2C59415D0017AA86 /* CustomTabView.swift in Sources */,
 				B30713622C4917B2009BFEDF /* Exercise.swift in Sources */,
 				B3CFAD3C2C330F22001E3B18 /* MainView.swift in Sources */,
 				B301CF672C4804A600F5D193 /* LineChartWeightView.swift in Sources */,
@@ -322,9 +336,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BurpeeKing/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BurpeeKing/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -350,9 +364,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BurpeeKing/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BurpeeKing/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -390,6 +404,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B3BDAA192C5937400017AA86 /* XCRemoteSwiftPackageReference "SuperTabBar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daniil108/SuperTabBar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B3BDAA1A2C5937400017AA86 /* SuperTabBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3BDAA192C5937400017AA86 /* XCRemoteSwiftPackageReference "SuperTabBar" */;
+			productName = SuperTabBar;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B352E7962AF261850027BDD2 /* Project object */;
 }

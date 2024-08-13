@@ -1,0 +1,15 @@
+{
+  "originHash" : "36600c039bbb47914c26b568bde1465e222f3ccaad321062ecdfe902689c0c7e",
+  "pins" : [
+    {
+      "identity" : "supertabbar",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/daniil108/SuperTabBar",
+      "state" : {
+        "revision" : "d59a8065904d949ce271c6eb8a3e0af5028a956e",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}

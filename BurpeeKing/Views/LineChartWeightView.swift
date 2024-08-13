@@ -18,19 +18,12 @@ struct LineChartView: View {
             Text("\(exercise.name) Overview")
                 .font(.headline)
                 .bold()
-//            Text("Max Weight: \(exerciseManager.highestWeightCount, specifier: "%.1f")kg")
-//                .font(.subheadline)
-//                .foregroundStyle(.secondary)
             
             Chart {
                 RuleMark(y: .value("Goal", exercise.goalWeightOrTime))
                     .foregroundStyle(.red)
                     .lineStyle(StrokeStyle(dash: [15.0, 5.0]))
-                //                    .annotation(alignment: .leading) {
-                //                        Text("Goal")
-                //                            .font(.caption)
-                //                            .foregroundStyle(.secondary)
-                //                    }
+                
                 ForEach(exercises) { exercise in
                     LineMark(x: .value("Date", exercise.date, unit: .month),
                              y: .value("Weight", exercise.weightCountOrTime ?? 0.0))
@@ -39,15 +32,6 @@ struct LineChartView: View {
             }
             .frame(height: 250)
             .chartYScale(domain: 100...250)
-            //            .chartXAxis {
-            //                AxisMarks(values: exercises.map {$0.date}) { date in
-            //                    AxisValueLabel(format: .dateTime.month(.narrow), centered: true)
-            //                }
-            //            }
-            //            .chartPlotStyle { plotContent in
-            //                plotContent
-            //                    .background(.black.gradient.opacity(0.3))
-            //            }
             
             
             Text("---")

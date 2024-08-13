@@ -17,7 +17,9 @@ struct WelcomeView: View {
                 .font(.system(size: 50))
                 .bold()
                 .shadow(radius: 8, x: 5, y: 5)
-                .foregroundStyle(.accent.gradient)
+                .foregroundStyle(
+                    LinearGradient(colors: [.purple, .accent], startPoint: .top, endPoint: .bottom)
+                )
             
             Text("Welcome to BurpeeKing")
                 .padding()
@@ -32,10 +34,10 @@ struct WelcomeView: View {
             }
             .padding()
             // maybe make it wiggle, it looks better and catchers the important attention
-            .font(.system(size: 50))
+            .font(.system(size: 60))
             .bold()
             .shadow(radius: 8, x: 5, y: 5)
-            .foregroundStyle(.purple.gradient)
+            .foregroundStyle(.white, .purple.gradient)
             .symbolEffect(.pulse.byLayer)
         }
         .sheet(isPresented: $showingSheet) {
